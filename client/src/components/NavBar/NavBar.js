@@ -1,16 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./NavBar.scss";
 import { Link } from "react-router-dom";
-
+import schedule from "node-schedule";
 function NavBar() {
+  const [time, SetTime] = useState(new Date().toLocaleTimeString());
+  useEffect(() => {
+    const setTime = () => {
+      SetTime(new Date().toLocaleTimeString());
+    };
+
+    let date = new Date();
+    date.setSeconds(date.getSeconds() + 1);
+    schedule.scheduleJob(date, () => {
+      setTime();
+    });
+  }, [time]);
+
   return (
     <div className="NavBar_app">
-      <Link to="/">
-        <div className="NavBar_title">
+      <div className="NavBar_title">
+        <Link to="/">
           <img src="./img/logo.png" alt="logo" />
-        </div>
-      </Link>
-
+        </Link>
+        <div className="Navbar_time">{time}</div>
+      </div>
       <div>
         <ul className="NavBar_ul">
           <Link to="/MyPage" className="menu-item">

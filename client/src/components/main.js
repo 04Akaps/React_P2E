@@ -6,3 +6,4 @@ export { default as SignIn } from "./SignIn/SignIn";
 export { default as MyPage } from "./Mypage/MyPage";
 export { default as Member } from "./Member/Member";
 export { default as CryptoWorld } from "./CryptoWorld/CryptoWorld";
+export { default as DetailWorld } from "./detailWorld/DetailWorld";

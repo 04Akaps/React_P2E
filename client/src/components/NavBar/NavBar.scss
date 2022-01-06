@@ -17,6 +17,13 @@
 
   .NavBar_title {
     margin-left: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .Navbar_time {
+      width: max-content;
+    }
 
     img {
       display: flex;
@@ -28,7 +35,7 @@
     list-style: none;
     display: flex;
     margin-right: 300px;
-    justify-content: space-between;
+
     align-items: center;
     width: 100%;
 
@@ -44,7 +51,7 @@
 
 .menu-item {
   color: #fff;
-  margin-right: 10%;
+  margin-right: 5%;
 }
 
 a {

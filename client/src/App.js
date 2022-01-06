@@ -6,6 +6,7 @@ import {
   SignIn,
   MyPage,
   CryptoWorld,
+  DetailWorld,
 } from "./components/main";
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
         </Route>
         <Route path="/CryptoWorld">
           <CryptoWorld />
+        </Route>
+        <Route path="/detail/:id">
+          <DetailWorld />
         </Route>
       </Switch>
     </div>

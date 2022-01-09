@@ -11,3 +11,6 @@ export { default as DetailWorld } from "./detailWorld/DetailWorld";
 
 export { default as Shop } from "./Shop/Shop";
 export { default as Login } from "./Login/Login";
+
+export { default as SignIn } from "./SignIn/SignIn";
+export { default as NFTList } from "./NFTList/NFTList";

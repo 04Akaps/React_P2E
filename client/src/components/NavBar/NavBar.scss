@@ -1,11 +1,12 @@
 .NavBar_app {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   font-size: 20px;
   font-weight: 800;
   color: #fff;
   width: 100%;
+
   background-color: #0f0e13;
   background-image: radial-gradient(
       at 0% 0%,
@@ -26,18 +27,25 @@
   }
   .NavBar_ul {
     list-style: none;
+    padding: 0px;
+    margin: 0px;
+
+    width: max-content;
     display: flex;
-    margin-right: 300px;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    padding: 20px 0px;
+
+    .Logout {
+      &:hover {
+        background: rgb(66, 66, 161);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+    }
 
     li {
-      margin-left: 10%;
       margin-right: 10%;
       cursor: pointer;
       width: max-content;
-      padding: 20px;
     }
   }
 }

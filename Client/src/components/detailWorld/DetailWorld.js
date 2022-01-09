@@ -26,8 +26,18 @@ function DetailWorld() {
   //             src="https://t1.daumcdn.net/cfile/tistory/233F6D505786DA870A"
   //             alt="loading"
   //           />
-  console.log(data);
-  return <div>sdfsdf</div>;
+
+  const get = async () => {
+    await axios.post("http://localhost:8080/Map/updateMap", {
+      idx: idx[0],
+      AttackAddress: "aaaaa",
+    });
+  };
+  return (
+    <div>
+      <button onClick={get}>onclick</button>
+    </div>
+  );
 }
 
 export default DetailWorld;

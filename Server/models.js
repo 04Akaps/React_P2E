@@ -7,8 +7,8 @@ const UserSchema = mongoose.Schema({
   privateKey: String,
   CharacterName: String,
   HavingLands: {
-    type: [String],
-    default: [],
+    type: Number,
+    default: 0,
   },
 });
 
@@ -16,9 +16,14 @@ export const UserDB = mongoose.model("User", UserSchema);
 
 const CharacterSchema = mongoose.Schema({
   CharacterName: String,
-  Pow: Number,
-  Soldier: Number,
-  Level: Number,
+  Soldier: {
+    type: Number,
+    default: 500,
+  },
+  limit: {
+    type: Number,
+    default: 500,
+  },
 });
 
 export const CharacterDB = mongoose.model("Character", CharacterSchema);

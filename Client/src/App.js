@@ -20,7 +20,9 @@ import OpenLogin from "@toruslabs/openlogin";
 import { VERIFIER } from "./utils/function/openLogin";
 import { ethers } from "ethers";
 import axios from "axios";
-import Web3 from "web3";
+import Caver from "caver-js";
+
+const caver = new Caver(window.Klaytn);
 
 function App() {
   const [user, SetUser] = useState(window.localStorage.getItem("User"));
@@ -92,9 +94,8 @@ function App() {
     await axios
       .get("http://localhost:8080/get_contract")
       .then(async (contract) => {
-        const web3 = await new Web3(window.ethereum);
         SetCA(contract.data.CA);
-        const Contract = await new web3.eth.Contract(
+        const Contract = await new caver.klay.Contract(
           contract.data.abi,
           contract.data.CA
         );

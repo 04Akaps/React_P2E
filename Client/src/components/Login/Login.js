@@ -46,13 +46,9 @@ function LogIn({ SetUser, openlogin, SetPrivKey, SetMetamask_address }) {
   };
 
   const onLoginMetaMask = async () => {
-    const accounts = await window.ethereum.request({
-      method: "eth_requestAccounts",
-    });
-    window.localStorage.setItem("meta_User", accounts[0]);
-    setTimeout(() => {
-      window.location.replace("http://localhost:3000");
-    }, 1000);
+    const provider = await window.klaytn.enable();
+    window.localStorage.setItem("meta_User", provider[0]);
+    window.location.replace("http://localhost:3000");
   };
 
   return (

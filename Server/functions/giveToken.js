@@ -1,5 +1,4 @@
-import { TokenDB, UserDB } from "../models.js";
-import { web3 } from "../web3/web3.js";
+import { UserDB } from "../models.js";
 
 export const giveTokenDB = async (address) => {
   const temp = await UserDB.findOne({ address: address });

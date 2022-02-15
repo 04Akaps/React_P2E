@@ -1,7 +1,8 @@
 import { randomNum } from "../functions/randomNumber.js";
 import { ItemDB, UserDB } from "../models.js";
-import { mintNFT } from "../web3/web3.js";
+
 import { NFT_index, plusNFT_index } from "../app.js";
+import { mintNFT } from "../Klaytn/Klaytn.js";
 
 export const getAllItem = async (req, res) => {
   const ItemList = await ItemDB.find({});

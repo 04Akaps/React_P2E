@@ -1,7 +1,7 @@
 import { CharacetrDB, UserDB } from "../models.js";
-import { web3, makeCharacter } from "../web3/web3.js";
 
 import jwt from "jsonwebtoken";
+import { caver, makeCharacter } from "../Klaytn/Klaytn.js";
 
 const { ACCESS_SECRET } = process.env;
 
@@ -14,7 +14,7 @@ export const makeUser = async (req, res) => {
   if (IdCh.length !== 0) {
     res.status(200).send({ message: "아이디 중복!" });
   } else {
-    let account = await web3.eth.accounts.create();
+    let account = await caver.klay.accounts.create();
 
     const makeUser = await new UserDB({
       ID: ID,
@@ -138,9 +138,9 @@ export const charge = async (req, res) => {
 export const swap = async (req, res) => {
   const User = await UserDB.findOne({ address: req.body.address });
 
-  const eth = await web3.eth.getBalance(req.body.address);
+  const eth = await caver.klay.getBalance(req.body.address);
 
-  const ether_balance = await web3.utils.fromWei(eth, "ether");
+  const ether_balance = await caver.utils.fromWei(eth, "ether");
 
   res.status(200).send({ Token: User.Token, Eth: ether_balance });
 };

@@ -1,5 +1,9 @@
+import {
+  MakeRandomNumber_Using_web3,
+  UpLimit,
+  UpPow,
+} from "../Klaytn/Klaytn.js";
 import { CharacetrDB, UserDB } from "../models.js";
-import { MakeRandomNumber_Using_web3, UpLimit, UpPow } from "../web3/web3.js";
 
 export const oneCharacter = async (req, res) => {
   const title = req.body.title;

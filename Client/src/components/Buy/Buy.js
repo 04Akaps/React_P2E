@@ -1,11 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import Web3 from "web3";
+import Caver from "caver-js";
 import "./Buy.scss";
 import Swal from "sweetalert2";
 
 import withReactContent from "sweetalert2-react-content";
 const MySwal = withReactContent(Swal);
+
+const caver = new Caver(window.Klaytn);
 
 function Buy({ player, contract, CA }) {
   const [eth, SetEth] = useState(0);
@@ -47,9 +49,7 @@ function Buy({ player, contract, CA }) {
   const send_swap = async () => {
     if (eth_to_token === true) {
       if (balance_Eth >= eth && eth > 0) {
-        const web3 = await new Web3(window.ethereum);
-        const value = await web3.utils.toWei(eth, "ether");
-        console.log(value);
+        const value = await caver.utils.toPeb(eth, "KLAY");
         let tx = {
           from: player.address,
           to: CA,
@@ -59,7 +59,7 @@ function Buy({ player, contract, CA }) {
         };
 
         alert_function(player.address);
-        await web3.eth.sendTransaction(tx).then(async (trs, err) => {
+        await caver.klay.sendTransaction(tx).then(async (trs, err) => {
           if (!err) console.log(trs);
           else {
             console.log(trs);

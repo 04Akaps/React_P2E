@@ -1,5 +1,5 @@
+import { Bidding, makeTrade, tradeOff } from "../Klaytn/Klaytn.js";
 import { SellingItemDB, UserDB } from "../models.js";
-import { makeTrade, tradeOff, Bidding } from "../web3/web3.js";
 
 export const AllSellingITem = async (req, res) => {
   const answer = await SellingItemDB.find({});

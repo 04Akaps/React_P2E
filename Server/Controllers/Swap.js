@@ -1,5 +1,6 @@
-import { CharacetrDB, UserDB } from "../models.js";
-import { Token_To_ETH } from "../web3/web3.js";
+import { Token_To_ETH } from "../Klaytn/Klaytn.js";
+import { UserDB } from "../models.js";
+
 export const eth_Token = async (req, res) => {
   const address = req.body.address;
   const Token = req.body.Token;

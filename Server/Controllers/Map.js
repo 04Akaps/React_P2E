@@ -1,11 +1,12 @@
 import { giveTokenDB } from "../functions/giveToken.js";
 import { CharacetrDB, MapDB, UserDB } from "../models.js";
+
+import dotenv from "dotenv";
 import {
   MakeRandomNumber_Using_web3,
   mintToken,
   mintTokenArray,
-} from "../web3/web3.js";
-import dotenv from "dotenv";
+} from "../Klaytn/Klaytn.js";
 
 dotenv.config();
 

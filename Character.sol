@@ -126,7 +126,7 @@ contract Character is char, check_User {
         address buyer,
         uint256 Price,
         uint256 NFT_index
-    ) public isOwner(msg.sender) {
+    ) external isOwner(msg.sender) {
         require(buyer != address(0), "Not Existed address");
         require(Gold_balanceOf(buyer) >= Price, "Buyer is not having Price");
         require(
@@ -365,3 +365,7 @@ contract Character is char, check_User {
         return nft.getTokenURIs(NFT_index);
     }
 }
+
+// 0xE7a622d46A767B313aF9DC71c76446299B246140
+
+// 0xE7a622d46A767B313aF9DC71c76446299B246140
